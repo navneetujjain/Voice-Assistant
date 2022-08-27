@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
+import datetime
 
 
 
@@ -21,9 +22,13 @@ with sr.Microphone() as source:
         command = command.replace("james", "")
         if "play" in command:
             command = command.replace("play", "")
-            engine.say(f"You asked me to play {command} , Wait a minute I'm just going to play the song")
+            engine.say(f"You asked me to play {command} , Wait a moment I'm just going to play the song")
             engine.runAndWait()
             pywhatkit.playonyt(command)
+        elif "time" in command:
+            command = datetime.datetime.now().strftime("%I:%M %p")
+            engine.say(f"The Time Is {command}")
+            engine.runAndWait()
     else:
         engine.say("You didn't called James, Please Rerun The Program And Try Again!!")
         engine.runAndWait()
