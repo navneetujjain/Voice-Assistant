@@ -34,13 +34,22 @@ with sr.Microphone() as source:
             if "wikipedia" in command:
                 search = command.replace("wikipedia", "")
                 info = wikipedia.summary(search, 2)
-
+                engine.say(info)
+                engine.runAndWait()
             elif "search" in command:
                 search = command.replace("search", "")
                 info = wikipedia.summary(search, 2)
+                engine.say(info)
+                engine.runAndWait()
             elif "who is" in command:
                 search = command.replace("who is", "")
                 info = wikipedia.summary(search, 2)
+                engine.say(info)
+                engine.runAndWait()
+        else:
+            engine.say("I am Still Learning Things And I'm Sorry To Inform You That I Don't Know What You Asked")
+            engine.say("Maybe Next Time, Till Then Rerun The Program And Ask Me Something That I Know")
+            engine.runAndWait()
 
     else:
         engine.say("You didn't called James, Please Rerun The Program And Try Again!!")
